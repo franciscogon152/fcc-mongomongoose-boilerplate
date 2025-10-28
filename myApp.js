@@ -53,13 +53,19 @@ const findOneByFood = (food, done) => {
     if (err) {
       return console.error(err);
     }
-  return done(null, data);
+    return done(null, data);
   });
 };
 
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
-};
+  Person.findById(personId,
+  (err, data) => {
+    if (err) {
+      return console.error(err);
+    }
+    return done(null, data);
+  });
+};  
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
